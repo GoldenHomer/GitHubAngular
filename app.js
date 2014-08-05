@@ -22,5 +22,5 @@ angular.module("githubViewer",[])
 	};
 
 	$scope.message = "GitHub Viewer";
-	$scope.repoSortOrder = "";
+	$scope.repoSortOrder = "-stargazers_count"; // This is what ng-model = "repoSortOrder" is retrieving from"
 });
