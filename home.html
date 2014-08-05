@@ -8,8 +8,9 @@
 	<h1>{{message}}</h1>
 	<div>{{error}}</div>
 
+	<a href="https://api.github.com/users">Try entering the login names.</a>
 	<form name="searchUser" ng-submit="search(username)">
-		<input type="search" required placeholder="api.github.com/users/USERNAME_HERE" ng-model="username" />
+		<input type="search" required placeholder="username" ng-model="username" />
 		<input type="submit" value="Search">
 	</form>
 

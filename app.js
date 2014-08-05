@@ -21,7 +21,6 @@ angular.module("githubViewer",[])
 		.then(onUserComplete, onError);
 	};
 
-	$scope.username = "angular";
 	$scope.message = "GitHub Viewer";
 	$scope.repoSortOrder = "";
 });
