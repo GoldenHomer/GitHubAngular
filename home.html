@@ -13,20 +13,21 @@
 		<input type="submit" value="Search">
 	</form>
 
-	<div>
+	<div ng-show="user">
+	<!-- If expression in ng-show is truthy (recall if statements in Javascript), then everything in the div will be shown -->
 		<h2>{{user.name}}</h2>
 		<img ng-src="http://www.gravatar.com/avatar/{{user.gravatar_id}}">
-	</div>
+		Order:
+		<!-- Cool, dropdown sort menu-->
+		<select ng-model="repoSortOrder">
+			<option value="+name">Name</option>
+			<option value="-stargazers_count">Stars</option>
+			<option value="+language">Languages</option>
+		</select>
+	</div>	 
 
-	Order:
-	<!-- Cool, dropdown sort menu-->
-	<select ng-model="repoSortOrder">
-		<option value="+name">Name</option>
-		<option value="-stargazers_count">Stars</option>
-		<option value="+language">Languages</option>
-	</select>
-
-	<table>
+	<table ng-show="user">
+	<!-- Don't want table headers to show initially if no user. -->
 		<thead>
 			<tr>
 				<th>Name</th>
