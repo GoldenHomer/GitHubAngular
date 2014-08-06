@@ -6,9 +6,9 @@
 </head>
 <body ng-controller="MainController">
 	<h1>{{message}}</h1>
-	<div>{{error}}</div>
+	<div>{{err}}</div>
 
-	<a href="https://api.github.com/users">Try entering the login names.</a>
+	<a href="https://api.github.com/users">Try your GitHub username.</a>
 	<form name="searchUser" ng-submit="search(username)">
 		<input type="search" required placeholder="username" ng-model="username" />
 		<input type="submit" value="Search">
