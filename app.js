@@ -1,29 +1,13 @@
-angular.module("githubViewer",[])
+angular.module("githubViewer")
 
-.controller("MainController", function($scope, $http){
+.controller("MainController", function($scope, $http, $location){
 	// Isn't it cool we can inject http behavior with Angular?
-	// Also, $log service is great for relaying information to user or developers!
-	var onUserComplete = function(res){
-		$scope.user = res.data;
-		$http.get($scope.user.repos_url)
-			.then(onRepos, onError);
-	};
-
-	var onRepos = function(res){
-		$scope.repos = res.data;
-	};
-
-	var onError = function(err){
-		$scope.err = alert("Could not get user."); 
-	};
-
 
 	$scope.search = function(username){
 		$http.get("https://api.github.com/users/" + username)
-		// http methods return PROMISES. method 'then' is used to run a function when the promise is ready to be made.
+		// http methods return PROMISES. method 'then' is used to run a function when the promise is ready to be made (when the GET HTTP is complete).
 		.then(onUserComplete, onError);
-	};
 
-	$scope.message = "GitHub Viewer";
-	$scope.repoSortOrder = "-stargazers_count"; // This is what ng-model = "repoSortOrder" is retrieving from"
+		$location.path("/user/" + username); // /user/:username
+	};
 });

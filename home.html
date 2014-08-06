@@ -3,18 +3,12 @@
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
 	<script src="app.js"></script>
+	<script src="MainController.js"></script>
+	<script src="UserController.js"></script>
 </head>
-<body ng-controller="MainController">
-	<h1>{{message}}</h1>
-	<div>{{err}}</div>
 
-	<a href="https://api.github.com/users">Try your GitHub username.</a>
-	<form name="searchUser" ng-submit="search(username)">
-		<input type="search" required placeholder="username" ng-model="username" />
-		<input type="submit" value="Search">
-	</form>
-
-	<!-- Important to use single quotes for string literal so Angular doesn't try to evaluate whatever is in ng-include-->
-	<div ng-include="'userdetails.html'" ng-show="user"></div>
+<body>
+	<h1>GitHub Viewer</h1>
+	<div ng-view></div>
 </body>
 </html>
