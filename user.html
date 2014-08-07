@@ -2,7 +2,6 @@
 	<h2>{{user.name}}</h2>
 	{{err}}
 	<!-- If expression in ng-show is truthy (recall if statements in Javascript), then everything in the div will be shown -->
-	<h2>{{user.name}}</h2>
 	<img ng-src="http://www.gravatar.com/avatar/{{user.gravatar_id}}">
 	Order:
 	<!-- Cool, dropdown sort menu-->
@@ -23,15 +22,15 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="repo in repos | orderBy:'stargazers_count'">
-		<!-- Remember, pipes are used for filters-->
+		<tr ng-repeat="repo in repos | orderBy: repoSortOrder">
 			 <td>
 			 <a href="#/repo/{{user.login}}/{{repo.name}}">{{repo.name}}</a>
 			 </td>
+			 <!-- Recall pipes are used for filters-->
 			 <td>{{repo.stargazers_count | number}}</td>
 			 <td>{{repo.language}}</td>
 		</tr>
 	</tbody>
 </table>
 
-<a href="#/home"></a>
+<a href="#/home">Back to search</a>

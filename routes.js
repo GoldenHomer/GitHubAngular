@@ -6,6 +6,7 @@ angular.module("githubViewer",["ngRoute"])
 			controller: "SearchController"
 		})
 		.when("/user/:username", { // Ah, this is how you interpolate strings in the URL
+			templateUrl: "user.html",
 			controller: "UserController"
 		})
 		.when("/repos/:username/:reponame"{
