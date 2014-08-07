@@ -1,6 +1,6 @@
 angular.module("githubViewer")
 
-.controller("MainController", function($scope, $http, $location){
+.controller("SearchController", function($scope, $http, $location){
 	// Isn't it cool we can inject http behavior with Angular?
 
 	$scope.search = function(username){
