@@ -1,13 +1,18 @@
-angular.module("githubViewer")
+angular.module("githubViewer",["ngRoute"])
+.config(function ($routeProvider) {
+	$routeProvider
+		.when("/home",{
+			templateUrl:"search.html",
+			controller: "SearchController"
+		})
+		.when("/user/:username", { // Ah, this is how you interpolate strings in the URL
+			templateUrl: "user.html",
+			controller: "UserController"
+		})
+		.when("/repos/:username/:reponame"{
+			templateUrl: "repo.html",
+			controller: "RepoController"
+		})
 
-.controller("SearchController", function($scope, $http, $location){
-	// Isn't it cool we can inject http behavior with Angular?
-
-	$scope.search = function(username){
-		$http.get("https://api.github.com/users/" + username)
-		// http methods return PROMISES. method 'then' is used to run a function when the promise is ready to be made (when the GET HTTP is complete).
-		.then(onUserComplete, onError);
-
-		$location.path("/user/" + username); // /user/:username
-	};
+		.otherwise({redirectTo:"/home"});
 });

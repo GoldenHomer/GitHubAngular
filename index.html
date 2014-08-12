@@ -4,7 +4,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
 	<script src="http://code.angularjs.org/1.2.14/angular-route.js"></script>
 	<script src="app.js"></script>
-	<script src="MainController.js"></script>
+	<script src="SearchController.js"></script>
 	<script src="UserController.js"></script>
 	<script src="RepoController.js"></script>
 	<script src="github.js"></script>
@@ -12,6 +12,9 @@
 
 <body>
 	<h1>GitHub Viewer</h1>
-	<div ng-view></div>
+	<div ng-view>
+		<!-- ng-view is cool because this is where the 
+		rendered templates in routes.js will be displayed-->
+	</div>
 </body>
 </html>
