@@ -3,7 +3,7 @@ var module = angular.module("githubViewer");
 
 var github = function ($http) {
 	var getUser = function (username){
-		return $http.get("https://apigithub.com/users" + username)
+		return $http.get("https://api.github.com/users" + username)
 		.then(function(res){
 			return res.data
 		})
@@ -15,15 +15,15 @@ var github = function ($http) {
 	var getRepos = function(user){
 		return $http.get(user.repos_url)
 				.then(function(res){
-					return res.data
-				})
+					return res.data;
+				});
 	};
 
 	var getRepoDetails = function(username, reponame){
 		var repo;
 		var repoUrl = "https://api.github.com/repos/" + username + "/" + reponame;
 
-		return $http.get("repoUrl").then(function(res){
+		return $http.get(repoUrl).then(function(res){
 			repo = res.data;
 			return $http.get(repoUrl + "/collaborators"); // This promise will be processed by a .then below
 		})
@@ -31,7 +31,7 @@ var github = function ($http) {
 			repo.collaborators = res.data;
 			return repo;
 		});
-	}
+	};
 
 	return {
 		getUser: getUser,
@@ -39,7 +39,7 @@ var github = function ($http) {
 		getRepoDetails: getRepoDetails
 		// These are what we get when we call method github.
 	};
-}
+};
 
 // then registering the service with Angular (this is one and easy way)
 module.factory("github",github);

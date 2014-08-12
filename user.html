@@ -1,8 +1,8 @@
 <div>
 	<h2>{{user.name}}</h2>
-	{{err}}
+	{{error}}
 	<!-- If expression in ng-show is truthy (recall if statements in Javascript), then everything in the div will be shown -->
-	<img ng-src="http://www.gravatar.com/avatar/{{user.gravatar_id}}">
+	<img ng-src="http://www.gravatar.com/avatar/{{user.gravatar_id}}" title="{{user.name}}">
 	Order:
 	<!-- Cool, dropdown sort menu-->
 	<select ng-model="repoSortOrder">
@@ -24,7 +24,7 @@
 	<tbody>
 		<tr ng-repeat="repo in repos | orderBy: repoSortOrder">
 			 <td>
-			 <a href="#/repo/{{user.login}}/{{repo.name}}">{{repo.name}}</a>
+				 <a href="#/repo/{{user.login}}/{{repo.name}}">{{repo.name}}</a>
 			 </td>
 			 <!-- Recall pipes are used for filters-->
 			 <td>{{repo.stargazers_count | number}}</td>

@@ -6,8 +6,8 @@ angular.module("githubViewer")
 		$scope.repo = data;
 	};
 
-	var onError = function(err){
-		$scope.error = err;
+	var onError = function(reason){
+		$scope.error = reason;
 	};
 	
 	var reponame = $routeParams.reponame;

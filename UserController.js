@@ -11,7 +11,7 @@ angular.module("githubViewer")
 		$scope.repos = data;
 	};
 
-	var onError = function(err){
+	var onError = function(reason){
 		$scope.error = "Could not get user."; 
 	};
 	

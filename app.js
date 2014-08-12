@@ -9,7 +9,7 @@ angular.module("githubViewer",["ngRoute"])
 			templateUrl: "user.html",
 			controller: "UserController"
 		})
-		.when("/repos/:username/:reponame"{
+		.when("/repo/:username/:reponame"{
 			templateUrl: "repo.html",
 			controller: "RepoController"
 		})
